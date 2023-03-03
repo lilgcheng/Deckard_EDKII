@@ -343,14 +343,19 @@
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|L"Timeout"|gEfiGlobalVariableGuid|0x0|10
 
 [Components]
-  
+  EmulatorPkg/Application/LibSample/MyLibApp/MyLibApp.inf{
+    <LibraryClasses>
+    MyLibraryLib|EmulatorPkg/Application/LibSample/MyLibrary/MyLibrary.inf
+  }
+
+  # EmulatorPkg/Application/LibSample/MyLibrary/MyLibrary.inf
   # MdeModulePkg/Application/LibSample/MyLibApp/MyLibApp.inf  {
   #  <LibraryClasses>
   #     MyLibraryLib|MdeModulePkg/Application/LibSample/MyLibrary/MyLibrary.inf
   # }
     EmulatorPkg/Application/Uefi_Main/Uefi_Main.inf
     EmulatorPkg/Application/ShellApp_Main/ShellApp_Main.inf
-   EmulatorPkg/Application/Stdlib_Main/Stdlib_Main.inf
+    EmulatorPkg/Application/Stdlib_Main/Stdlib_Main.inf
   
 !if "IA32" in $(ARCH) || "X64" in $(ARCH)
   !if "MSFT" in $(FAMILY) || $(WIN_HOST_BUILD) == TRUE
