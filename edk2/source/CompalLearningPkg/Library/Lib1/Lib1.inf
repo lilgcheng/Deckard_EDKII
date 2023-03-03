@@ -1,0 +1,28 @@
+##================================================================== 
+# @file  Lib1.inf
+# It's only for Compal internal use.
+# Authour: Justin Mao
+# Contact Information: Justin_Mao@compal.com
+# Description: INF file for the Library.
+##==================================================================
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Lib1
+  FILE_GUID                      = A1C50B60-67C3-4D03-A505-BD7E724C9EDA
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = Lib1|DXE_DRIVER UEFI_APPLICATION UEFI_DRIVER DXE_RUNTIME_DRIVER
+
+[Sources]
+  Lib1.c
+  Lib1.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]  
+  UefiBootServicesTableLib
+  UefiLib
+  DebugLib

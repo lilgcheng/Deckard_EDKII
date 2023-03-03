@@ -1,0 +1,32 @@
+##================================================================== 
+# @file  Peim1.inf
+# It's only for Compal internal use.
+# Authour: Justin Mao
+# Contact Information: Justin_Mao@compal.com
+# Description: INF file for the PEIM.
+##==================================================================
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Peim1
+  FILE_GUID                      = 440BD554-FA04-4B26-B099-188A3E724B20
+  MODULE_TYPE                    = PEIM
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = Peim1EntryPoint
+
+[Sources]
+  Peim1.c
+  Peim1.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]  
+  PeiServicesLib 
+  PeimEntryPoint  
+  DebugLib 
+  PeiServicesTablePointerLib
+  
+[Depex]
+  TRUE

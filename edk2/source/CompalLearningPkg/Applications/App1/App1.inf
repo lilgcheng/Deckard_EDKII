@@ -1,0 +1,27 @@
+##================================================================== 
+# @file  App1.inf
+# It's only for Compal internal use.
+# Authour: Justin Mao
+# Contact Information: Justin_Mao@compal.com
+# Description: INF file for the application.
+##==================================================================
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = App1
+  FILE_GUID                      = 6987936E-ED34-44db-AE97-1FA5E4ED2116
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = App1Main
+
+[Sources]
+  App1.c
+  App1.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]  
+  UefiApplicationEntryPoint
+  UefiLib 

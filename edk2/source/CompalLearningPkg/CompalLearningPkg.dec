@@ -1,0 +1,35 @@
+##================================================================== 
+# @file  CompalLearningPkg.dec
+# It's only for Compal internal use.
+# Authour: Justin Mao
+# Contact Information: Justin_Mao@compal.com
+# Description: DEC file for Compal Learning Package.
+#              There're some case study of EDK II trainning.
+##==================================================================
+
+[Defines]
+  DEC_SPECIFICATION		= 0x00010005
+  PACKAGE_NAME			= JustinModulePkg
+  PACKAGE_GUID			= 7E667F3E-4940-4974-8047-CD838F68ED2A
+  PACKAGE_VERSION		= 1.00
+
+[Includes]
+  Include
+
+[LibraryClasses]
+  Lib1|CompalLearningPkg/Include/Library/Lib1External.h
+
+[Guids]
+ ## Compal Leaning package token space guid
+  gCompalLearningPkgSpaceGuid    = {0x97B5561C, 0x58CA, 0x4B8D, {0xA0, 0x88, 0x78, 0xD5, 0xCA, 0x38, 0x30, 0xF6}}
+  
+[Protocols]
+ ## Sample protocol 1
+ ## Include/Protocol/CompalLearningSampleProtocol1.h
+  gCompalLearningSampleProtocol1 = {0x755B6596, 0x6896, 0x4BA3, { 0xB3, 0xDD, 0x1C, 0x62, 0x9F, 0xD1, 0xEA, 0x88}} 
+  
+[PcdsFixedAtBuild]
+  gCompalLearningPkgSpaceGuid.PcdCompalSample1|0|UINT8|0x00000001
+  
+[PcdsDynamic] 
+  gCompalLearningPkgSpaceGuid.PcdCompalSample2|0|UINT16|0x10000001

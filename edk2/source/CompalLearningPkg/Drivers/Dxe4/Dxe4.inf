@@ -1,0 +1,36 @@
+##================================================================== 
+# @file  Dxe4.inf
+# It's only for Compal internal use.
+# Authour: Justin Mao
+# Contact Information: Justin_Mao@compal.com
+# Description: INF file for the DXE driver.
+##==================================================================
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Dxe4
+  FILE_GUID                      = 1807040D-5934-41A2-A088-8E0F777F71AB
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = Dxe4EntryPoint
+
+[Sources]
+  Dxe4.c
+  Dxe4.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  CompalLearningPkg/CompalLearningPkg.dec
+
+[LibraryClasses]  
+  UefiBootServicesTableLib
+  UefiLib
+  UefiDriverEntryPoint
+  DebugLib
+
+[Protocols]
+  gCompalLearningSampleProtocol1
+    
+[Depex]
+  TRUE

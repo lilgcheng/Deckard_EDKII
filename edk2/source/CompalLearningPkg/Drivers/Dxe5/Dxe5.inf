@@ -1,0 +1,35 @@
+##================================================================== 
+# @file  Dxe5.inf
+# It's only for Compal internal use.
+# Authour: Justin Mao
+# Contact Information: Justin_Mao@compal.com
+# Description: INF file for the DXE driver.
+##==================================================================
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Dxe5
+  FILE_GUID                      = D15E7D4B-138B-4ca3-BB2C-5907127F8DAD
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = Dxe5EntryPoint
+
+[Sources]
+  Dxe5.c
+  Dxe5.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  CompalLearningPkg/CompalLearningPkg.dec
+
+[LibraryClasses]  
+  UefiBootServicesTableLib
+  UefiLib
+  UefiDriverEntryPoint
+  DebugLib
+[Protocols]
+  gCompalLearningSampleProtocol1
+  
+[Depex]
+  gCompalLearningSampleProtocol1

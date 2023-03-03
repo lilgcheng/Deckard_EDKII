@@ -1,0 +1,40 @@
+##================================================================== 
+# @file  Dxe3.inf
+# It's only for Compal internal use.
+# Authour: Justin Mao
+# Contact Information: Justin_Mao@compal.com
+# Description: INF file for the DXE driver.
+##==================================================================
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Dxe3
+  FILE_GUID                      = 049EFD4D-BEF5-494D-89DE-C2FA0648B622
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = Dxe3EntryPoint
+
+[Sources]
+  Dxe3.c
+  Dxe3.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  CompalLearningPkg/CompalLearningPkg.dec
+
+[LibraryClasses]  
+  UefiBootServicesTableLib
+  UefiLib
+  UefiDriverEntryPoint
+  DebugLib
+  PcdLib
+ 
+[FixedPcd]
+  gCompalLearningPkgSpaceGuid.PcdCompalSample1
+
+[Pcd]
+  gCompalLearningPkgSpaceGuid.PcdCompalSample2   
+  
+[Depex]
+  TRUE
