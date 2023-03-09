@@ -343,6 +343,8 @@
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|L"Timeout"|gEfiGlobalVariableGuid|0x0|10
 
 [Components]
+  EmulatorPkg/Application/Uefi_Get_SMBIOS_Type/Uefi_Get_SMBIOS_Type.inf
+
   EmulatorPkg/Application/TestProtocol/TestProtocol.inf
   EmulatorPkg/Application/Uefi_Main_LocateHandleBuffer/Uefi_Main_LocateHandleBuffer.inf
   EmulatorPkg/Application/LibSample/MyLibApp/MyLibApp.inf{
@@ -359,6 +361,7 @@
     EmulatorPkg/Application/ShellApp_Main/ShellApp_Main.inf
     EmulatorPkg/Application/Stdlib_Main/Stdlib_Main.inf
   
+
 !if "IA32" in $(ARCH) || "X64" in $(ARCH)
   !if "MSFT" in $(FAMILY) || $(WIN_HOST_BUILD) == TRUE
     ##
