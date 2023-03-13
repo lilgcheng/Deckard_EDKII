@@ -188,6 +188,7 @@ SMBios64View (
       // if QueryType!=Random, but Hdr->Type==QueryType, also print it.
       // only if QueryType != Random and Hdr->Type != QueryType, skiped it.
       //
+      Print((const CHAR16 *)L"QueryType=%d,SmbiosStruct.Hdr->Type=0x%x,", QueryType, SmbiosStruct.Hdr->Type);
       if (QueryType != STRUCTURE_TYPE_RANDOM && SmbiosStruct.Hdr->Type != QueryType) {
         continue;
       }
@@ -266,10 +267,15 @@ CalculateSmbios64BitStructureCountAndLength (
     //
     // Walk to next structure
     //
+
+    Print((const CHAR16 *)L"this structure head = %p\r\n",Raw);
     LibGetSmbiosString (&Smbios, (UINT16) (-1));
+    Print((const CHAR16 *)L"Next structure head= %p\r\n",Smbios.Raw);
+   
     //
     // Length = Next structure head - this structure head
     //
+    
     (*Smbios64TableLength) += ((UINTN) Smbios.Raw - (UINTN) Raw);
     if ((*Smbios64TableLength) > Smbios64EntryPoint->TableMaximumSize) {
       //
@@ -365,6 +371,7 @@ InitSmbios64BitTableStatistics (
   //
   Handle = INVALID_HANDLE;
   LibGetSmbios64BitStructure (&Handle, NULL, NULL);
+  Print((const CHAR16 *)L"mNumberOfSmbios64BitStructures=%d\r\n",mNumberOfSmbios64BitStructures);
   for (Index = 1; Index <= mNumberOfSmbios64BitStructures; Index++) {
     //
     // If reach the end of table, break..
@@ -638,7 +645,7 @@ LibGetSmbios64BitStructure (&StructHandle, NULL, NULL);
 //
 // Show SMBIOS structure information
 //
-Status = SMBios64View (0xFE, StructHandle, 0x03, TRUE);//-<scab smbio  0xFE
+Status = SMBios64View (0xFE, StructHandle, 0x03, TRUE);//-<scan smbio  0xFE
 
 
 
