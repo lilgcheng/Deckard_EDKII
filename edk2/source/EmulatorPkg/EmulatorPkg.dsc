@@ -343,6 +343,9 @@
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|L"Timeout"|gEfiGlobalVariableGuid|0x0|10
 
 [Components]
+EmulatorPkg/Application/GetACPI/GetACPI.inf
+
+  EmulatorPkg/Application/Uefi_Main_ACPI_Dump/Uefi_Main_ACPI_Dump.inf
   EmulatorPkg/Application/Uefi_Get_SMBIOS_Dump/Uefi_Get_SMBIOS_Dump.inf
   EmulatorPkg/Application/Uefi_Get_SMBIOS_Type/Uefi_Get_SMBIOS_Type.inf
   EmulatorPkg/Application/TestProtocol/TestProtocol.inf
