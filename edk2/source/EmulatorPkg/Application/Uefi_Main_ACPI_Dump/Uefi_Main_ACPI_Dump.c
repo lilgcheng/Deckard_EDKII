@@ -57,14 +57,17 @@ VOID ST_Guid_List(VOID){
 VOID ListAcpiTable(VOID){
   EFI_ACPI_3_0_ROOT_SYSTEM_DESCRIPTION_POINTER *Rsdp;
   EFI_ACPI_3_0_FIXED_ACPI_DESCRIPTION_TABLE *Fadt;
+  
+
   EFI_ACPI_DESCRIPTION_HEADER *Entry,*XSDT;
+  EFI_ACPI_DESCRIPTION_HEADER *DSDT;
   EFI_STATUS Status;
   // UINT32 *Entry32;
   UINT64 *Entry64;
   UINTN Entry64Num;
   UINTN i;
   UINT32 *Signature;
-
+  CHAR16		Sign[20];
 
   Status = gBS->LocateProtocol(&gEfiAcpiTableProtocolGuid,NULL,(VOID **)&mAcpiTableProtocol);
   if(EFI_ERROR(Status)){
@@ -78,6 +81,8 @@ VOID ListAcpiTable(VOID){
   if(EFI_ERROR(Status)){
    Status = EfiGetSystemConfigurationTable(&gEfiAcpi10TableGuid,(VOID **)&Rsdp);
   }
+
+  // Find Fadt Entry Pointer
   if(EFI_ERROR(Status)||(Rsdp==NULL)){
     Print(L"Can't find RSD_PTR form System table\n");
     // return NULL;
@@ -90,15 +95,31 @@ VOID ListAcpiTable(VOID){
     Print(L"Rsdp->RsdtAddress: 0x%p\n",Entry);
   }
 
+  // Find Fadt Entry Pointer
   if(XSDT != NULL){
     Entry64 = (UINT64*)(XSDT+1);
     Entry64Num = (XSDT->Length - sizeof(EFI_ACPI_DESCRIPTION_HEADER))>>3;
-    for ( i = 0; i < Entry64Num; i++)
+    Print(L"[Entry64Num]: %d\n",Entry64Num);
+
+    
+    for ( i = 0; i < Entry64Num; i++,Entry64++)
     {
+      Entry = (EFI_ACPI_DESCRIPTION_HEADER*)((UINTN)(*Entry64));
+      ZeroMem(Sign,sizeof(Sign));
+      Sign[0]= (Entry->Signature & 0xFF);
+      Sign[1]= (Entry->Signature >> 8 & 0xFF);
+      Sign[2]= (Entry->Signature >> 16 & 0xFF);
+      Sign[3]= (Entry->Signature >> 24 & 0xFF);
+      Print(L"%d: [%s] @[%X]\n",i,Sign,Entry);
+
+
       Signature = (UINT32*)(UINTN)Entry64[i];
       if(*Signature == EFI_ACPI_3_0_FIXED_ACPI_DESCRIPTION_TABLE_SIGNATURE){
         Fadt = (EFI_ACPI_3_0_FIXED_ACPI_DESCRIPTION_TABLE *)Signature;
         Print(L"[Fadt]: 0x%p\n",Fadt);
+
+        DSDT = (EFI_ACPI_DESCRIPTION_HEADER *)(UINTN)(Fadt->Dsdt);
+        Print(L"[DSDT]: 0x%p\n",DSDT);
       }
     }
     
