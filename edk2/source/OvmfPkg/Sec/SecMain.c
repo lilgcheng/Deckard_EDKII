@@ -962,7 +962,22 @@ SecCoreStartupWithStack (
 
   SecCoreData.BootFirmwareVolumeBase = BootFv;
   SecCoreData.BootFirmwareVolumeSize = (UINTN) BootFv->FvLength;
+  
+  DEBUG ((DEBUG_INFO,   "=====SEC 1 passing PEI Data=====\n" ));
+  DEBUG ((DEBUG_INFO,   "DataSize:%d\n",SecCoreData.DataSize ));
+  DEBUG ((DEBUG_INFO,   "BootFirmwareVolumeBase:0x%p\n",SecCoreData.BootFirmwareVolumeBase ));
+  DEBUG ((DEBUG_INFO,   "BootFirmwareVolumeSize:%d\n",SecCoreData.BootFirmwareVolumeSize ));
+ 
+  DEBUG ((DEBUG_INFO,   "TemporaryRamBase:0x%p\n",SecCoreData.TemporaryRamBase ));
+  DEBUG ((DEBUG_INFO,   "TemporaryRamSize:%d\n",SecCoreData.TemporaryRamSize ));
+  
+  DEBUG ((DEBUG_INFO,   "PeiTemporaryRamBase:0x%p\n",SecCoreData.PeiTemporaryRamBase ));
+  DEBUG ((DEBUG_INFO,   "PeiTemporaryRamSize:%d\n",SecCoreData.PeiTemporaryRamSize ));
 
+  DEBUG ((DEBUG_INFO,   "StackBase:0x%p\n",SecCoreData.StackBase ));
+  DEBUG ((DEBUG_INFO,   "StackSize:%d\n",SecCoreData.StackSize ));
+
+  DEBUG ((DEBUG_INFO,   "===============================\n" ));
   //
   // Make sure the 8259 is masked before initializing the Debug Agent and the debug timer is enabled
   //
@@ -1015,6 +1030,22 @@ SecStartupPhase2(
   SecCoreData->BootFirmwareVolumeBase = BootFv;
   SecCoreData->BootFirmwareVolumeSize = (UINTN) BootFv->FvLength;
 
+  
+  DEBUG ((DEBUG_INFO,   "=====SEC 2 passing PEI Data=====\n" ));
+  DEBUG ((DEBUG_INFO,   "DataSize:%d\n",SecCoreData->DataSize ));
+  DEBUG ((DEBUG_INFO,   "BootFirmwareVolumeBase:0x%p\n",SecCoreData->BootFirmwareVolumeBase ));
+  DEBUG ((DEBUG_INFO,   "BootFirmwareVolumeSize:%d\n",SecCoreData->BootFirmwareVolumeSize ));
+ 
+  DEBUG ((DEBUG_INFO,   "TemporaryRamBase:0x%p\n",SecCoreData->TemporaryRamBase ));
+  DEBUG ((DEBUG_INFO,   "TemporaryRamSize:%d\n",SecCoreData->TemporaryRamSize ));
+  
+  DEBUG ((DEBUG_INFO,   "PeiTemporaryRamBase:0x%p\n",SecCoreData->PeiTemporaryRamBase ));
+  DEBUG ((DEBUG_INFO,   "PeiTemporaryRamSize:%d\n",SecCoreData->PeiTemporaryRamSize ));
+
+  DEBUG ((DEBUG_INFO,   "StackBase:0x%p\n",SecCoreData->StackBase ));
+  DEBUG ((DEBUG_INFO,   "StackSize:%d\n",SecCoreData->StackSize ));
+
+  DEBUG ((DEBUG_INFO,   "===============================\n" ));
   //
   // Transfer the control to the PEI core
   //
