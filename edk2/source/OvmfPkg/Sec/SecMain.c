@@ -710,6 +710,7 @@ FindAndReportEntryPoints (
   // Find PEI Core entry point
   //
   Status = PeCoffLoaderGetEntryPoint ((VOID *) (UINTN) PeiCoreImageBase, (VOID**) PeiCoreEntryPoint);
+  DEBUG ((DEBUG_INFO,   "[Deckard] PeiCoreEntryPoint = 0x%p\n",PeiCoreEntryPoint ));
   if (EFI_ERROR (Status)) {
     *PeiCoreEntryPoint = 0;
   }
@@ -998,6 +999,7 @@ SecStartupPhase2(
   IN VOID                     *Context
   )
 {
+  DEBUG ((DEBUG_INFO,   "[Deckard] SecStartupPhase2\n" ));
   EFI_SEC_PEI_HAND_OFF        *SecCoreData;
   EFI_FIRMWARE_VOLUME_HEADER  *BootFv;
   EFI_PEI_CORE_ENTRY_POINT    PeiCoreEntryPoint;
@@ -1017,7 +1019,7 @@ SecStartupPhase2(
   // Transfer the control to the PEI core
   //
   (*PeiCoreEntryPoint) (SecCoreData, (EFI_PEI_PPI_DESCRIPTOR *)&mPrivateDispatchTable);
-
+  
   //
   // If we get here then the PEI Core returned, which is not recoverable.
   //

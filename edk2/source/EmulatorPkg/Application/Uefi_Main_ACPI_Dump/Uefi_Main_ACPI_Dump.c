@@ -27,7 +27,37 @@
 
 
 EFI_ACPI_TABLE_PROTOCOL *mAcpiTableProtocol = NULL;
+UINT64 EntryPtr;
+UINTN BasePtr;
+EFI_ACPI_DESCRIPTION_HEADER *Table;
 
+VOID PrintEntrySignature(UINTN EntryCount){
+  UINT8 Temp;
+  UINTN i;
+  UINTN j;
+
+  //go through all Entry poniter and print Signature
+  for ( i = 0; i < EntryCount; i++)
+  {
+    CopyMem(&EntryPtr,(VOID *)(BasePtr+i*sizeof(UINT64)),sizeof(UINT64));
+    Table = (EFI_ACPI_DESCRIPTION_HEADER*)((UINTN)(EntryPtr));
+    for(j=0;j<4;j++){
+      Temp = (Table->Signature>>(j*8) & 0xFF);
+      Print(L"%c",Temp);
+    }
+   
+    // ZeroMem(Sign,sizeof(Sign));
+    // // Print(L"[Entry->Signature ]: 0x%x\n",Entry->Signature );
+    
+    // Sign[0]= (Table->Signature & 0xFF);
+    // Sign[1]= (Table->Signature >> 8 & 0xFF);
+    // Sign[2]= (Table->Signature >> 16 & 0xFF);
+    // Sign[3]= (Table->Signature >> 24 & 0xFF);
+    // Print(L"%d: [%s] @[%p]\n",i,Sign,Table);
+  Print(L"\n");
+  }
+ 
+}
 /**
   The user Entry Point for Application. The user code starts with this function
   as the real entry point for the application.
@@ -139,13 +169,13 @@ VOID ListAcpiTableEntryPointer2(VOID){
   // EFI_ACPI_DESCRIPTION_HEADER *DSDT;
   EFI_STATUS Status;
   // UINT32 *Entry32;
-  UINT64 EntryPtr;
+UINTN i;
   UINTN EntryCount;
-  UINTN i;
+  
   // UINT32 *Signature;
   CHAR16		Sign[20];
-  UINTN BasePtr;
-  EFI_ACPI_DESCRIPTION_HEADER *Table;
+
+ 
 
   Status = gBS->LocateProtocol(&gEfiAcpiTableProtocolGuid,NULL,(VOID **)&mAcpiTableProtocol);
   if(EFI_ERROR(Status)){
@@ -166,24 +196,29 @@ VOID ListAcpiTableEntryPointer2(VOID){
     // return NULL;
   }else if(Rsdp->Revision >= EFI_ACPI_2_0_ROOT_SYSTEM_DESCRIPTION_POINTER_REVISION && Rsdp->XsdtAddress!=0) {
     Entry=(EFI_ACPI_DESCRIPTION_HEADER*)(UINTN)Rsdp->XsdtAddress;
-    Print(L"Rsdp->XsdtAddres[XSDT]: 0x%p\n",Entry);
+    // Print(L"Rsdp->XsdtAddres[XSDT]: 0x%p\n",Entry);
     XSDT = (EFI_ACPI_DESCRIPTION_HEADER*)(UINTN)Rsdp->XsdtAddress;
   }else if(Rsdp->RsdtAddress!=0){
     Entry = (EFI_ACPI_DESCRIPTION_HEADER*)(UINTN)Rsdp->RsdtAddress;
-    Print(L"Rsdp->RsdtAddress: 0x%p\n",Entry);
+    // Print(L"Rsdp->RsdtAddress: 0x%p\n",Entry);
   }
+  Print(L"[XSDT]: 0x%p\n",Entry);
+
 
   // Find Fadt Entry Pointer
   if(XSDT != NULL){
     BasePtr = (UINTN)(XSDT+1);
+    Print(L"[BasePtr]: 0x%p\n",BasePtr);
+    
     //How many Entry poniter
     EntryCount = (XSDT->Length - sizeof(EFI_ACPI_DESCRIPTION_HEADER))>>3; 
     Print(L"[EntryCount]: %d ,sizeof(UINT64):%d\n",EntryCount,sizeof(UINT64));
 
     //go through all Entry poniter and print Signature
-    for ( i = 0; i < EntryCount; i++)
-    {
+    // PrintEntrySignature(EntryCount);
+    for ( i = 0; i < EntryCount; i++){
       CopyMem(&EntryPtr,(VOID *)(BasePtr+i*sizeof(UINT64)),sizeof(UINT64));
+      
       Table = (EFI_ACPI_DESCRIPTION_HEADER*)((UINTN)(EntryPtr));
 
       ZeroMem(Sign,sizeof(Sign));
