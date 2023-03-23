@@ -20,6 +20,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 VOID
+
 DiscoverPeimsAndOrderWithApriori (
   IN  PEI_CORE_INSTANCE    *Private,
   IN  PEI_CORE_FV_HANDLE   *CoreFileHandle
@@ -103,7 +104,16 @@ DiscoverPeimsAndOrderWithApriori (
     PeimCount,
     Private->CurrentPeimFvCount
     ));
-
+  for (Index = 0; Index < PeimCount; Index++) {
+    //
+    // Make an array of file name GUIDs that matches the FileHandle array so we can convert
+    // quickly from file name to file handle
+    //
+    Status = FvPpi->GetFileInfo (FvPpi, TempFileHandles[Index], &FileInfo);
+    ASSERT_EFI_ERROR (Status);
+    CopyMem (&TempFileGuid[Index], &FileInfo.FileName, sizeof(EFI_GUID));
+    DEBUG ((DEBUG_INFO , "%g\n", FileInfo.FileName));
+  }
   if (PeimCount == 0) {
     //
     // No PEIM FFS file is found, set ScanFv flag and return.

@@ -187,6 +187,8 @@ PeiCore (
   // Perform PEI Core phase specific actions.
   //
   if (OldCoreData == NULL) {
+    DEBUG ((EFI_D_INFO, "[Deckard]OldCoreData == NULL\n"));
+
     //
     // If OldCoreData is NULL, means current is the first entry into the PEI Core before memory is available.
     //
@@ -194,10 +196,12 @@ PeiCore (
     PrivateData.Signature = PEI_CORE_HANDLE_SIGNATURE;
     CopyMem (&PrivateData.ServiceTableShadow, &gPs, sizeof (gPs));
   } else {
+
     //
     // Memory is available to the PEI Core.  See if the PEI Core has been shadowed to memory yet.
     //
     if (OldCoreData->ShadowedPeiCore == NULL) {
+      DEBUG ((EFI_D_INFO, "[Deckard] Fixup the PeiCore's private data\n"));
       //
       // Fixup the PeiCore's private data
       //
