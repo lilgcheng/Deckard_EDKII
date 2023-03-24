@@ -29,6 +29,7 @@ StatusCodeHandlerPeiEntry (
   IN CONST EFI_PEI_SERVICES     **PeiServices
   )
 {
+  DEBUG ((EFI_D_INFO, "[Deckard] 3.StatusCodeHandlerPeiEntry\n"));
   EFI_STATUS                  Status;
   EFI_PEI_RSC_HANDLER_PPI     *RscHandlerPpi;
 

@@ -280,6 +280,7 @@ GenericStatusCodePeiEntry (
   IN CONST EFI_PEI_SERVICES     **PeiServices
   )
 {
+  DEBUG ((EFI_D_INFO, "[Deckard] 2.GenericStatusCodePeiEntry\n"));
   EFI_STATUS                 Status;
   EFI_PEI_PPI_DESCRIPTOR     *OldDescriptor;
   EFI_PEI_PROGRESS_CODE_PPI  *OldStatusCodePpi;
