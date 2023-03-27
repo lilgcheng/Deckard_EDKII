@@ -1,0 +1,40 @@
+## @file
+#  Sample UEFI Application Reference EDKII Module.
+#
+#  This is a sample shell application that will print Hello,this is Entry of UefiMain!" to the
+#  UEFI Console.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Uefi_Dxe_Hob
+  FILE_GUID                      = 9937936E-ED34-44ab-AE97-1FA5E7ED2117
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = Uefi_Dxe_Hob
+
+
+
+[Sources]
+Uefi_Dxe_Hob.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  DeckardPkg/DeckardPkg.dec
+
+[LibraryClasses]  
+  BaseLib
+  UefiBootServicesTableLib
+  UefiLib
+  UefiDriverEntryPoint
+  DebugLib
+  HobLib
+
+[Guids]
+  
+  gDeckardHobGuid
+
+[Depex]
+  TRUE

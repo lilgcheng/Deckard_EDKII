@@ -676,6 +676,7 @@
 ################################################################################
 [Components]
   DeckardPkg/HOB_TEST/PEI_HOB/Uefi_PEI_Hob.inf
+  DeckardPkg/HOB_TEST/DXE_HOB/Uefi_Dxe_Hob.inf
   OvmfPkg/ResetVector/ResetVector.inf
 
   #
