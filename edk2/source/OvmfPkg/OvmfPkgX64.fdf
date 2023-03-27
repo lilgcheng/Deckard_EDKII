@@ -313,6 +313,9 @@ INF  OvmfPkg/LinuxInitrdDynamicShellCommand/LinuxInitrdDynamicShellCommand.inf
 !endif
 INF  ShellPkg/Application/Shell/Shell.inf
 
+# add test module
+INF DeckardPkg/HOB_TEST/PEI_HOB/Uefi_PEI_Hob.inf
+
 INF MdeModulePkg/Logo/LogoDxe.inf
 
 #

@@ -675,6 +675,7 @@
 #
 ################################################################################
 [Components]
+  DeckardPkg/HOB_TEST/PEI_HOB/Uefi_PEI_Hob.inf
   OvmfPkg/ResetVector/ResetVector.inf
 
   #

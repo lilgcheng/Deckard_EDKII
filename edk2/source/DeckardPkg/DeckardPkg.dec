@@ -1,0 +1,22 @@
+##================================================================== 
+# @file  DeckardLearningPkg.dec
+# It's only for Compal internal use.
+# Authour: Deckard Chen
+# Contact Information: Deckard_Chen@compal.com
+# Description: DEC file for Compal Learning Package.
+#              There're some case study of EDK II trainning.
+##==================================================================
+
+[Defines]
+  DEC_SPECIFICATION		= 0x00010005
+  PACKAGE_NAME			= DeckardModulePkg
+  PACKAGE_GUID			= 7E667F3E-4940-4974-8247-CD838F68ED2B
+  PACKAGE_VERSION		= 1.00
+
+[Includes]
+  Include
+
+[Guids]
+ ## Deckard Leaning package token space guid
+ gDeckardHobGuid = {0x755B6596, 0x68A6, 0x4BA3, { 0xB3, 0xAD, 0x2C, 0x62, 0x9F, 0xD1, 0xEA, 0x98}}
+
