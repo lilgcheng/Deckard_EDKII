@@ -1,8 +1,8 @@
 
 #include <Uefi.h>
 #include <Library/UefiLib.h>
-
-
+#include <Library/PrintLib_External.h>
+#include <Library/DebugLib.h>
 
 /**
   The user Entry Point for Application. The user code starts with this function
@@ -22,21 +22,10 @@ Uefi_Main_Use_Library (
   IN EFI_SYSTEM_TABLE  *SystemTable
   )
 {
-  EFI_TIME curTime;
+  // EFI_TIME curTime;
   Print(L"Hello,this is Entry of UefiMain!\n");
-  EFI_BOOT_SERVICES *gBS =NULL;
-  gBS =  SystemTable->BootServices;
-
-  EFI_RUNTIME_SERVICES *gRT = NULL;
-  gRT = SystemTable->RuntimeServices;
-  //使用BootService和RuntimeService
-  gBS->Stall(2000);  //延时2秒
-  gRT->GetTime(&curTime,NULL);
-  Print(L"Current Time: %d-%d-%d %02d:%02d:%02d\n",curTime.Year,curTime.Month,curTime.Day,curTime.Hour,curTime.Minute,curTime.Second);
-
-  //使用SystemTable
-  SystemTable->ConOut->OutputString(SystemTable->ConOut,L"Test SystemTable...\n\r");
-
+  EFI_STATUS Status  = EFI_SUCCESS;
+  Status= PrintLibUse();
 
   return EFI_SUCCESS;
 }

@@ -1,0 +1,20 @@
+##================================================================== 
+# @file  CompalLearningPkg.dec
+# It's only for Compal internal use.
+# Authour: Justin Mao
+# Contact Information: Justin_Mao@compal.com
+# Description: DEC file for Compal Learning Package.
+#              There're some case study of EDK II trainning.
+##==================================================================
+
+[Defines]
+  DEC_SPECIFICATION		= 0x00010005
+  PACKAGE_NAME			= DeckardModulePkg
+  PACKAGE_GUID			= 7E667F3E-4940-4974-8047-CD838F68ED2A
+  PACKAGE_VERSION		= 1.00
+
+[Includes]
+  Include
+
+[LibraryClasses]
+ DeckardPrintLib|DeckardPkg/Include/Library/PrintLib_External.h

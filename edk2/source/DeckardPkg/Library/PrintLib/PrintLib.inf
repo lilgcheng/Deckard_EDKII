@@ -8,27 +8,24 @@
 
 [Defines]
   INF_VERSION                    = 0x00010005
-  BASE_NAME                      = Uefi_Main_Use_Library
-  FILE_GUID                      = 6938936E-ED34-44ab-AE97-1FA5E7ED2116
-  MODULE_TYPE                    = UEFI_APPLICATION
+  BASE_NAME                      = PrintLib1
+  FILE_GUID                      = 6938936E-ED34-44ab-AF97-1FA5E7ED2116
+  MODULE_TYPE                    = BASE
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = Uefi_Main_Use_Library
+  LIBRARY_CLASS                  = PrintLib1 |DXE_DRIVER UEFI_APPLICATION UEFI_DRIVER DXE_RUNTIME_DRIVER
 
 
 
 [Sources]
-Uefi_Main_Use_Library.c
+PrintLib.c
+PrintLib_Internal.h
 
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  
-  #add libray -> PrintLib 
-  DeckardPkg/DeckardPkg.dec
-
 
 [LibraryClasses]
   UefiApplicationEntryPoint
   UefiLib
-  DeckardPrintLib
+  DebugLib
  

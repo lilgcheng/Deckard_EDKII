@@ -47,6 +47,9 @@
 !include MdePkg/MdeLibs.dsc.inc
 
 [LibraryClasses]
+  #2023/03.29 add library inf
+  DeckardPrintLib|DeckardPkg/Library/PrintLib/PrintLib.inf
+
   #
   # Entry point
   #
@@ -343,8 +346,9 @@
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|L"Timeout"|gEfiGlobalVariableGuid|0x0|10
 
 [Components]
-DeckardPkg/Uefi_Main_Use_Library/Uefi_Main_Use_Library.inf
-EmulatorPkg/Application/GetACPI/GetACPI.inf
+  DeckardPkg/Uefi_Main_Use_Library/Uefi_Main_Use_Library.inf
+ 
+  EmulatorPkg/Application/GetACPI/GetACPI.inf
 
   EmulatorPkg/Application/Uefi_Main_ACPI_Dump/Uefi_Main_ACPI_Dump.inf
   EmulatorPkg/Application/Uefi_Get_SMBIOS_Dump/Uefi_Get_SMBIOS_Dump.inf
