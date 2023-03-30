@@ -348,7 +348,7 @@
 [Components]
   DeckardPkg/Uefi_Main_Use_Library/Uefi_Main_Use_Library.inf
  
-  EmulatorPkg/Application/GetACPI/GetACPI.inf
+
 
   EmulatorPkg/Application/Uefi_Main_ACPI_Dump/Uefi_Main_ACPI_Dump.inf
   EmulatorPkg/Application/Uefi_Get_SMBIOS_Dump/Uefi_Get_SMBIOS_Dump.inf
