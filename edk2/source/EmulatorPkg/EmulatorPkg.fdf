@@ -220,6 +220,13 @@ INF  ShellPkg/DynamicCommand/TftpDynamicCommand/TftpDynamicCommand.inf
 !endif
 INF  ShellPkg/Application/Shell/Shell.inf
 
+##
+## Deckard Modules
+##
+INF  DeckardPkg/Uefi_Main_Use_Library/Uefi_Main_Use_Library.inf
+INF  DeckardPkg/Uefi_DXE_Main_Insatll_Protocol/Uefi_DXE_Main_Insatll_Protocol.inf
+INF  DeckardPkg/Uefi_DXE_Main_Located_Protocol/Uefi_DXE_Main_Located_Protocol.inf
+
 #
 # Compal Modules
 #

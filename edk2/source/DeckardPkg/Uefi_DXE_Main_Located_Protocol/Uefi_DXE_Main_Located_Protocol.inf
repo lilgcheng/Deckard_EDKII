@@ -1,0 +1,42 @@
+## @file
+#  Sample UEFI Application Reference EDKII Module.
+#
+#  This is a sample shell application that will print Hello,this is Entry of UefiMain!" to the
+#  UEFI Console.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Uefi_DXE_Main_Located_Protocol
+  FILE_GUID                      = 2938936E-ED34-44ab-AE97-1FA5E7ED2116
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = Uefi_DXE_Main_Located_Protocol
+
+
+
+[Sources]
+Uefi_DXE_Main_Located_Protocol.c
+Uefi_DXE_Main_Located_Protocol.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  DeckardPkg/DeckardPkg.dec
+  
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiLib
+  UefiDriverEntryPoint
+  DebugLib
+  
+[Protocols]
+ gEfiDXESampleProtocolGuid
+ gEfiDXESampleBMIProtocolGuid
+
+ 
+[Depex]
+
+ TRUE

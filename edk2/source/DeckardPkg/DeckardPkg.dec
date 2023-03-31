@@ -18,3 +18,9 @@
 
 [LibraryClasses]
  DeckardPrintLib|DeckardPkg/Include/Library/PrintLib_External.h
+
+[Protocols]
+  ## Include/Protocol/DXE_Sample_Protocol.h
+  gEfiDXESampleProtocolGuid          = { 0x4583ff6, 0xcb36, 0x4940, { 0x94, 0x7e, 0xb9, 0xb3, 0x9f, 0x4a, 0xfa, 0xf7 }}
+ ## Include/Protocol/DXE_Sample_Protocol.h
+  gEfiDXESampleBMIProtocolGuid       = { 0x4663ff6, 0xcb36, 0x4940, { 0x94, 0x7e, 0xb9, 0xb3, 0x9f, 0x4a, 0xfa, 0xf7 }}

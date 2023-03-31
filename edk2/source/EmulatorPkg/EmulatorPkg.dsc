@@ -346,9 +346,21 @@
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|L"Timeout"|gEfiGlobalVariableGuid|0x0|10
 
 [Components]
+  ##
+  ## Deckard Modules
+  ##
   DeckardPkg/Uefi_Main_Use_Library/Uefi_Main_Use_Library.inf
- 
+  DeckardPkg/Uefi_DXE_Main_Insatll_Protocol/Uefi_DXE_Main_Insatll_Protocol.inf{
+   <LibraryClasses>
+     DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
+     SerialPortLib|EmulatorPkg/Library/DxeEmuStdErrSerialPortLib/DxeEmuStdErrSerialPortLib.inf
+  }
 
+  DeckardPkg/Uefi_DXE_Main_Located_Protocol/Uefi_DXE_Main_Located_Protocol.inf{
+   <LibraryClasses>
+     DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
+     SerialPortLib|EmulatorPkg/Library/DxeEmuStdErrSerialPortLib/DxeEmuStdErrSerialPortLib.inf
+  }
 
   EmulatorPkg/Application/Uefi_Main_ACPI_Dump/Uefi_Main_ACPI_Dump.inf
   EmulatorPkg/Application/Uefi_Get_SMBIOS_Dump/Uefi_Get_SMBIOS_Dump.inf
