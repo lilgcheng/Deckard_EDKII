@@ -7,12 +7,8 @@
 #include <Library/UefiLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Protocol/DXE_Sample_Protocol.h>
-
 #include <PiDxe.h>
-
-
 #include <Library/BaseMemoryLib.h>
-
 #include <Library/MemoryAllocationLib.h>
 #include <Library/PcdLib.h>
 #include <Library/UefiApplicationEntryPoint.h>

@@ -26,6 +26,8 @@ VOID StrCpy(IN CHAR8 *Dest, IN CHAR8 *Src){
   }
   *Dest = 0;
 }
+
+
 EFI_STATUS
 EFIAPI
 Uefi_DXE_Main_Insatll_Protocol (
