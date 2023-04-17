@@ -33,3 +33,5 @@
 [Pcd]
   gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel  ## CONSUMES
 
+[Depex]
+  TRUE

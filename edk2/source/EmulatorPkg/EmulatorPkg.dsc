@@ -329,6 +329,7 @@
 ## Compal Fixed PCD
 ##
   gCompalLearningPkgSpaceGuid.PcdCompalSample1|0xF
+  gEfiDeckardTokenSpaceGuid.PcdSample1 | 0x9
 
 [PcdsDynamicDefault.common.DEFAULT]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareBase64|0
@@ -339,7 +340,7 @@
 ## Compal Dynamice PCD
 ##
   gCompalLearningPkgSpaceGuid.PcdCompalSample2|0x200
-
+  gEfiDeckardTokenSpaceGuid.PcdSample2|0xF9
 [PcdsDynamicHii.common.DEFAULT]
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|L"Setup"|gEmuSystemConfigGuid|0x0|80
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|L"Setup"|gEmuSystemConfigGuid|0x4|25
@@ -349,6 +350,12 @@
   ##
   ## Deckard Modules
   ##
+  DeckardPkg/Uefi_Main_Use_PCD/Uefi_Main_Use_PCD.inf{
+   <LibraryClasses>
+     DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
+     SerialPortLib|EmulatorPkg/Library/DxeEmuStdErrSerialPortLib/DxeEmuStdErrSerialPortLib.inf
+  }
+
   DeckardPkg/Uefi_Main_Use_Library/Uefi_Main_Use_Library.inf
   DeckardPkg/Uefi_DXE_Main_Insatll_Protocol/Uefi_DXE_Main_Insatll_Protocol.inf{
    <LibraryClasses>

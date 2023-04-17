@@ -1,0 +1,44 @@
+## @file
+#  Sample UEFI Application Reference EDKII Module.
+#
+#  This is a sample shell application that will print Hello,this is Entry of UefiMain!" to the
+#  UEFI Console.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Uefi_Main_Use_PCD
+  FILE_GUID                      = 6938936E-ED34-44ab-AE97-1FA5E7ED2336
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = Uefi_Main_Use_PCD
+
+
+
+[Sources]
+Uefi_Main_Use_PCD.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  
+  #add libray -> PrintLib 
+  DeckardPkg/DeckardPkg.dec
+
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiLib
+  UefiDriverEntryPoint
+  DebugLib
+  PcdLib
+ 
+[FixedPcd]
+  gEfiDeckardTokenSpaceGuid.PcdSample1
+
+[Pcd]
+  gEfiDeckardTokenSpaceGuid.PcdSample2 
+
+[Depex]
+  TRUE
