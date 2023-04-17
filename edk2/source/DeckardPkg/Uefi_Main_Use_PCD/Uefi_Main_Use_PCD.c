@@ -33,6 +33,13 @@ Uefi_Main_Use_PCD (
   DynamicPcdValue = PcdGet16(PcdSample2);
   DEBUG ((EFI_D_INFO, "[Deckard] DynamicPcdValue:%x \n",DynamicPcdValue));
 
+  RETURN_STATUS PcdStatus;
+  PcdStatus = PcdSet16S(PcdSample2,0xAABB);
+  ASSERT_RETURN_ERROR (PcdStatus);
+  DynamicPcdValue = PcdGet16(PcdSample2);
+  DEBUG ((EFI_D_INFO, "[Deckard] modify DynamicPcdValue:%x \n",DynamicPcdValue));
+
+
   if(FeaturePcdGet(PcdSample3)){
     DEBUG ((EFI_D_INFO, "[Deckard] PcdSample3 = TRUE\n"));
   }else{
