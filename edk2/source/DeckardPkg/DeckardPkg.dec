@@ -34,3 +34,8 @@
   gEfiDeckardTokenSpaceGuid.PcdSample1 |5|UINT8|0x00000001
 [PcdsDynamic]
   gEfiDeckardTokenSpaceGuid.PcdSample2 |6|UINT16|0x00000002
+
+[PcdsFeatureFlag]
+
+  gEfiDeckardTokenSpaceGuid.PcdSample3|FALSE|BOOLEAN|0x00000003
+  gEfiDeckardTokenSpaceGuid.PcdSample4|TRUE|BOOLEAN|0x00000004

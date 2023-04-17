@@ -39,6 +39,8 @@ Uefi_Main_Use_PCD.c
 
 [Pcd]
   gEfiDeckardTokenSpaceGuid.PcdSample2 
-
+[FeaturePcd]
+  gEfiDeckardTokenSpaceGuid.PcdSample3
+  gEfiDeckardTokenSpaceGuid.PcdSample4
 [Depex]
   TRUE
