@@ -227,7 +227,7 @@ INF  DeckardPkg/Uefi_Main_Use_PCD/Uefi_Main_Use_PCD.inf
 INF  DeckardPkg/Uefi_Main_Use_Library/Uefi_Main_Use_Library.inf
 INF  DeckardPkg/Uefi_DXE_Main_Insatll_Protocol/Uefi_DXE_Main_Insatll_Protocol.inf
 INF  DeckardPkg/Uefi_DXE_Main_Located_Protocol/Uefi_DXE_Main_Located_Protocol.inf
-
+INF  DeckardPkg/Application/ListUSB/ListUSB.inf
 #
 # Compal Modules
 #

@@ -125,7 +125,7 @@ RegisterFilterLib|MdePkg/Library/RegisterFilterLibNull/RegisterFilterLibNull.inf
   # RobinPkg/Drivers/GopRotate/GopRotate.inf                #chap08
   # RobinPkg/Applications/TestGopRotate/TestGopRotate.inf   #chap08
   # RobinPkg/Drivers/MyOprom/MyOprom.inf										#chap08
-  # RobinPkg/Applications/ListUSB/ListUSB.inf               #chap09
+  RobinPkg/Applications/ListUSB/ListUSB.inf               #chap09
   # RobinPkg/Applications/HelloHid/HelloHid.inf             #chap09
   # RobinPkg/Applications/EchoTcp4/EchoTcp4.inf          		#chap10
   # RobinPkg/Applications/EchoUdp4/EchoUdp4.inf          		#chap10

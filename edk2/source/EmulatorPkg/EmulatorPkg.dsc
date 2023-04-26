@@ -47,6 +47,7 @@
 !include MdePkg/MdeLibs.dsc.inc
 
 [LibraryClasses]
+
   #2023/03.29 add library inf
   DeckardPrintLib|DeckardPkg/Library/PrintLib/PrintLib.inf
 
@@ -350,6 +351,7 @@
   ##
   ## Deckard Modules
   ##
+  DeckardPkg/Application/ListUSB/ListUSB.inf
   DeckardPkg/Uefi_Main_Use_PCD/Uefi_Main_Use_PCD.inf{
    <LibraryClasses>
      DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
