@@ -698,7 +698,7 @@ InitializePlatform (
   )
 {
   EFI_STATUS    Status;
-  DEBUG ((EFI_D_INFO, "[Deckard] 4.InitializePlatform\n"));
+
   DEBUG ((DEBUG_INFO, "Platform PEIM Loaded\n"));
 
   DebugDumpCmos ();

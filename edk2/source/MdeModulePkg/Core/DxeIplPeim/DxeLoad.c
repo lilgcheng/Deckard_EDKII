@@ -71,7 +71,6 @@ PeimInitializeDxeIpl (
   IN CONST EFI_PEI_SERVICES     **PeiServices
   )
 {
-  DEBUG ((EFI_D_INFO, "[Deckard] 5.PeimInitializeDxeIpl\n"));
   EFI_STATUS                                Status;
   EFI_BOOT_MODE                             BootMode;
   VOID                                      *Dummy;

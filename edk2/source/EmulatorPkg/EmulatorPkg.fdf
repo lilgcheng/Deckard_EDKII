@@ -223,7 +223,7 @@ INF  ShellPkg/Application/Shell/Shell.inf
 #
 # Compal Modules
 #
-#INF CompalLearningPkg/Peims/Peim1/Peim1.inf
+INF CompalLearningPkg/Peims/Peim1/Peim1.inf
 #INF CompalLearningPkg/Drivers/Dxe1/Dxe1.inf
 #INF CompalLearningPkg/Drivers/Dxe2/Dxe2.inf
 INF CompalLearningPkg/Drivers/Dxe3/Dxe3.inf

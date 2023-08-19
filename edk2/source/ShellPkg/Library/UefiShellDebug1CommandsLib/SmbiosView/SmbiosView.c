@@ -186,7 +186,6 @@ Show64Bit:
         //
         // Show SMBIOS structure information
         //
-        ShellPrintEx(-1,-1,L"=StructType:0x%x,StructHandle:0x%x,gShowType:0x%x=\n\n",StructType,StructHandle,gShowType);
         Status = SMBios64View (StructType, StructHandle, gShowType, RandomView);
         if (EFI_ERROR(Status)) {
           ShellStatus = SHELL_NOT_FOUND;

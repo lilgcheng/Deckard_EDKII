@@ -337,7 +337,6 @@ PcdPeimInit (
   IN CONST EFI_PEI_SERVICES     **PeiServices
   )
 {
-  DEBUG ((EFI_D_INFO, "[Deckard] 1.PcdPeimInit\n"));
   EFI_STATUS Status;
 
   BuildPcdDatabase (FileHandle);

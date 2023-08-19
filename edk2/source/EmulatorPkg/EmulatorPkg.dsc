@@ -47,6 +47,9 @@
 !include MdePkg/MdeLibs.dsc.inc
 
 [LibraryClasses]
+  #Deckard add ShellCEntryLib for use ShellCTestApp
+  ShellCEntryLib|ShellPkg/Library/UefiShellCEntryLib/UefiShellCEntryLib.inf
+
   #
   # Entry point
   #
@@ -55,49 +58,6 @@
   DxeCoreEntryPoint|MdePkg/Library/DxeCoreEntryPoint/DxeCoreEntryPoint.inf
   UefiDriverEntryPoint|MdePkg/Library/UefiDriverEntryPoint/UefiDriverEntryPoint.inf
   UefiApplicationEntryPoint|MdePkg/Library/UefiApplicationEntryPoint/UefiApplicationEntryPoint.inf
-  ShellCEntryLib|ShellPkg/Library/UefiShellCEntryLib/UefiShellCEntryLib.inf
-
-# 2023/03/03 for build Stdlib_Main
-  #
-  # C Standard Libraries
-  #
-  LibC|StdLib/LibC/LibC.inf
-  LibCType|StdLib/LibC/Ctype/Ctype.inf
-  LibLocale|StdLib/LibC/Locale/Locale.inf
-  LibMath|StdLib/LibC/Math/Math.inf
-  LibSignal|StdLib/LibC/Signal/Signal.inf
-  LibStdio|StdLib/LibC/Stdio/Stdio.inf
-  LibStdLib|StdLib/LibC/StdLib/StdLib.inf
-  LibString|StdLib/LibC/String/String.inf
-  LibTime|StdLib/LibC/Time/Time.inf
-  LibUefi|StdLib/LibC/Uefi/Uefi.inf
-  LibWchar|StdLib/LibC/Wchar/Wchar.inf
-
-# Common Utilities for Networking Libraries
-  LibNetUtil|StdLib/LibC/NetUtil/NetUtil.inf
-
-# Additional libraries for POSIX functionality.
-  LibPosix|StdLib/PosixLib/PosixLib.inf   # Combines LibErr, LibGen, LibGlob, LibStringlist, GetPass into one library
-
-  LibErr|StdLib/PosixLib/Err/LibErr.inf
-  LibGen|StdLib/PosixLib/Gen/LibGen.inf
-  LibGlob|StdLib/PosixLib/Glob/LibGlob.inf
-  LibStringlist|StdLib/PosixLib/Stringlist/LibStringlist.inf
-  LibIIO|StdLib/LibC/Uefi/InteractiveIO/IIO.inf
-
-# Additional, non-standard, libraries
-  LibContainer|StdLib/LibC/Containers/ContainerLib.inf
-
-# Libraries for device abstractions within the Standard C Library
-# Applications should not directly access any functions defined in these libraries.
-  LibGdtoa|StdLib/LibC/gdtoa/gdtoa.inf
-  DevConsole|StdLib/LibC/Uefi/Devices/daConsole.inf
-  DevShell|StdLib/LibC/Uefi/Devices/daShell.inf       # DEPRECATED!  Please use DevMedia for new code.
-  DevMedia|StdLib/LibC/Uefi/Devices/daShell.inf
-  DevUtility|StdLib/LibC/Uefi/Devices/daUtility.inf
-
-  LuaLib|AppPkg/Applications/Lua/LuaLib.inf           # Lua language library
-  
   #
   # Basic
   #
@@ -343,28 +303,6 @@
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|L"Timeout"|gEfiGlobalVariableGuid|0x0|10
 
 [Components]
-EmulatorPkg/Application/GetACPI/GetACPI.inf
-
-  EmulatorPkg/Application/Uefi_Main_ACPI_Dump/Uefi_Main_ACPI_Dump.inf
-  EmulatorPkg/Application/Uefi_Get_SMBIOS_Dump/Uefi_Get_SMBIOS_Dump.inf
-  EmulatorPkg/Application/Uefi_Get_SMBIOS_Type/Uefi_Get_SMBIOS_Type.inf
-  EmulatorPkg/Application/TestProtocol/TestProtocol.inf
-  EmulatorPkg/Application/Uefi_Main_LocateHandleBuffer/Uefi_Main_LocateHandleBuffer.inf
-  EmulatorPkg/Application/LibSample/MyLibApp/MyLibApp.inf{
-    <LibraryClasses>
-    MyLibraryLib|EmulatorPkg/Application/LibSample/MyLibrary/MyLibrary.inf
-  }
-
-  # EmulatorPkg/Application/LibSample/MyLibrary/MyLibrary.inf
-  # MdeModulePkg/Application/LibSample/MyLibApp/MyLibApp.inf  {
-  #  <LibraryClasses>
-  #     MyLibraryLib|MdeModulePkg/Application/LibSample/MyLibrary/MyLibrary.inf
-  # }
-    EmulatorPkg/Application/Uefi_Main/Uefi_Main.inf
-    EmulatorPkg/Application/ShellApp_Main/ShellApp_Main.inf
-    EmulatorPkg/Application/Stdlib_Main/Stdlib_Main.inf
-  
-
 !if "IA32" in $(ARCH) || "X64" in $(ARCH)
   !if "MSFT" in $(FAMILY) || $(WIN_HOST_BUILD) == TRUE
     ##
@@ -402,13 +340,12 @@ EmulatorPkg/Application/GetACPI/GetACPI.inf
   MdeModulePkg/Universal/FaultTolerantWritePei/FaultTolerantWritePei.inf
   MdeModulePkg/Universal/Variable/Pei/VariablePei.inf
   EmulatorPkg/AutoScanPei/AutoScanPei.inf
-
-
-
   EmulatorPkg/FirmwareVolumePei/FirmwareVolumePei.inf
   EmulatorPkg/FlashMapPei/FlashMapPei.inf
   EmulatorPkg/ThunkPpiToProtocolPei/ThunkPpiToProtocolPei.inf
   MdeModulePkg/Core/DxeIplPeim/DxeIpl.inf
+  
+  CompalLearningPkg/Peims/Peim1/Peim1.inf
 
   ##
   #  DXE Phase modules
@@ -576,6 +513,9 @@ EmulatorPkg/Application/GetACPI/GetACPI.inf
   #    SerialPortLib|EmulatorPkg/Library/DxeEmuStdErrSerialPortLib/DxeEmuStdErrSerialPortLib.inf
   #}  
   #CompalLearningPkg/Applications/App1/App1.inf
+  ShellPkg/Library/UefiShellDebug1CommandsLib/UefiShellDebug1CommandsLib.inf
+  ShellPkg/Application/ShellCTestApp/ShellCTestApp.inf
+  DeckardPkg/Applications/AppSMBIOS/AppSMBIOS.inf
   CompalLearningPkg/Drivers/Dxe3/Dxe3.inf {
     <LibraryClasses>
       DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf

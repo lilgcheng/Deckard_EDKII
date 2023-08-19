@@ -1127,7 +1127,7 @@ PeimS3ResumeEntryPoint (
   )
 {
   EFI_STATUS  Status;
-  DEBUG ((EFI_D_INFO, "[Deckard] 6.PeimS3ResumeEntryPoint\n"));
+
   //
   // Install S3 Resume Ppi
   //
