@@ -1,0 +1,26 @@
+
+[Defines]
+  INF_VERSION                    = 0x00012105
+  BASE_NAME                      = Event_Demo
+  FILE_GUID                      = 6987936E-ED34-44db-AE97-1FA5E4ED2599
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = Event_Demo_Entry
+
+[Sources]
+  Event_Demo.c
+  Event_Demo.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  EmulatorPkg/EmulatorPkg.dec
+  
+[LibraryClasses]  
+UefiApplicationEntryPoint
+  BaseLib
+  BaseMemoryLib
+  DebugLib
+  UefiLib
+  
+

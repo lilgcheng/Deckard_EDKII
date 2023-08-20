@@ -516,6 +516,7 @@
   ShellPkg/Library/UefiShellDebug1CommandsLib/UefiShellDebug1CommandsLib.inf
   ShellPkg/Application/ShellCTestApp/ShellCTestApp.inf
   DeckardPkg/Applications/AppSMBIOS/AppSMBIOS.inf
+  DeckardPkg/Applications/Event_Demo/Event_Demo.inf
   CompalLearningPkg/Drivers/Dxe3/Dxe3.inf {
     <LibraryClasses>
       DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
