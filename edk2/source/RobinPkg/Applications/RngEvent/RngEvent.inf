@@ -48,9 +48,9 @@
   # ShellCEntryLib
   UefiBootServicesTableLib
   UefiLib
-  PcdLib
-  UefiRuntimeServicesTableLib
-  HiiLib
+  # PcdLib
+  # UefiRuntimeServicesTableLib
+  # HiiLib
  # BasePciExpressLib
 
 [Protocols]
