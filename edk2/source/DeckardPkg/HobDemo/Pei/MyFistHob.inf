@@ -1,0 +1,40 @@
+## @file
+# for creat hob
+#
+#  
+#
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MyFirstHob
+  FILE_GUID                      = 2D6F6B11-9681-8E11-8579-B57DCD006011
+  MODULE_TYPE                    = PEIM
+  VERSION_STRING                 = 1.0
+
+  ENTRY_POINT                    = MyFirstHobEntry
+
+[Sources]
+  MyFirstHob.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  EmulatorPkg/EmulatorPkg.dec
+
+[LibraryClasses]
+  PeiServicesTablePointerLib
+  PeiServicesLib
+  HobLib
+  BaseMemoryLib
+  BaseLib
+  PeimEntryPoint
+  DebugLib
+  MemoryAllocationLib
+
+[Guids]
+  gMyFirstHobGuid
+
+[Depex]
+  TRUE

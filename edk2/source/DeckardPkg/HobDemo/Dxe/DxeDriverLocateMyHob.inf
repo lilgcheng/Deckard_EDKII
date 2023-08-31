@@ -1,0 +1,42 @@
+## @file
+#  locate my hob
+#
+#
+#
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = LocateMyHob
+  FILE_GUID                      = 69879123-ED74-44db-AE97-1FA5E4ED2116
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = LocateMyHobEntry
+
+
+[Sources]
+  DxeDriverLocateMyHob.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  EmulatorPkg/EmulatorPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  UefiDriverEntryPoint
+  BaseLib
+  BaseMemoryLib
+  DevicePathLib
+  UefiBootServicesTableLib
+  MemoryAllocationLib
+  UefiLib
+  HobLib
+  
+
+[Guids]
+  gMyFirstHobGuid
+
+[Depex]
+  TRUE

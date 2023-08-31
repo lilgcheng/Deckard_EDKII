@@ -375,7 +375,6 @@
   EmulatorPkg/ResetRuntimeDxe/Reset.inf
   MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
   EmulatorPkg/FvbServicesRuntimeDxe/FvbServicesRuntimeDxe.inf
-
   MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf {
     <LibraryClasses>
 !if $(SECURE_BOOT_ENABLE) == TRUE
@@ -517,6 +516,14 @@
   ShellPkg/Application/ShellCTestApp/ShellCTestApp.inf
   DeckardPkg/Applications/AppSMBIOS/AppSMBIOS.inf
   DeckardPkg/Applications/Event_Demo/Event_Demo.inf
+  DeckardPkg/HobDemo/Pei/MyFistHob.inf
+
+  DeckardPkg/HobDemo/Dxe/DxeDriverLocateMyHob.inf{
+    <LibraryClasses>
+      DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
+      SerialPortLib|EmulatorPkg/Library/DxeEmuStdErrSerialPortLib/DxeEmuStdErrSerialPortLib.inf
+  }
+
   CompalLearningPkg/Drivers/Dxe3/Dxe3.inf {
     <LibraryClasses>
       DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
