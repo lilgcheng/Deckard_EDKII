@@ -1,0 +1,23 @@
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = AppSMBIOS
+  FILE_GUID                      = 6987936E-ED34-44db-AE97-1FA5E4ED2118
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = AppSMBIOSMain
+
+[Sources]
+  AppSMBIOS.c
+  AppSMBIOS.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]  
+  UefiApplicationEntryPoint
+  UefiLib 
+
+[Guids]
+  gEfiSmbios3TableGuid                              ## SOMETIMES_PRODUCES ## SystemTable
