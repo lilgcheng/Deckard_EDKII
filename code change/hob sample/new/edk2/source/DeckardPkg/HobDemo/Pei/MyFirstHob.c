@@ -16,9 +16,40 @@ Portions copyright (c) 2011, Apple Inc. All rights reserved.
 #include <Library/HobLib.h>
 #include <Library/PeiServicesLib.h>
 #include <Library/MemoryAllocationLib.h>
-#include <Include/HobDemo.h>
 
 
+/**
+  This funtion is  printf  str in debug
+
+  @return status
+**/
+EFI_STATUS
+EFIAPI
+PrintMesg (
+  VOID
+  )
+{
+  DEBUG ((DEBUG_INFO, "Mesg for in pei hob!\n"));
+
+  return EFI_SUCCESS;
+}
+
+/**
+  This funtion is  printf  str in debug
+
+  @return status
+**/
+typedef 
+EFI_STATUS 
+(EFIAPI *PEI_HOB_MESSG) (
+  VOID
+  );
+
+typedef struct {
+  INT32  number;
+  PEI_HOB_MESSG  PrintMesg
+  ;
+}TEST_STR;
 
 extern EFI_GUID gMyFirstHobGuid;
 

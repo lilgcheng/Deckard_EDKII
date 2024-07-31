@@ -12,7 +12,24 @@
 #include <PiPei.h>
 #include <Guid/MemoryAllocationHob.h>
 #include <Pi/PiHob.h>
-#include <Include/HobDemo.h>
+
+/**
+  This funtion is  printf  str in debug
+
+
+  @return status
+**/
+typedef 
+EFI_STATUS 
+(EFIAPI * PEI_HOB_MESSG) (
+  VOID
+  );
+
+typedef struct {
+  INT32  number;
+  PEI_HOB_MESSG  PrintMesg
+  ;
+}TEST_STR;
 
 
 extern EFI_GUID gMyFirstHobGuid;

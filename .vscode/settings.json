@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "hobdemo.h": "c",
+        "debuglib.h": "c",
+        "peiserviceslib.h": "c"
+    }
+}
